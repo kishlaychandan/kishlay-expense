@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <style>
     .hidden-sidebar {
       width: 0;
@@ -100,10 +100,7 @@
   </div>
   <div class="flex h-full">
     <!-- Sidebar -->
-    <div
-      id="sidebar"
-      class="w-64 bg-gray-800 text-white flex flex-col transition-width duration-300"
-    >
+    <div id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col transition-width duration-300">
       <div class="flex justify-between items-center p-4 bg-gray-900">
         <span class="text-xl font-semibold">Menu</span>
         <button id="close-btn" class="text-2xl">&times;</button>
@@ -111,75 +108,36 @@
       <nav class="flex-1 p-4">
         <ul>
           <li class="my-2">
-            <button
-              onclick="loadPage('./Newfolder/index.html')"
-              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
-            >
-              General Purpose
-            </button>
+            <button onclick="loadPage('./Newfolder/index.html')" class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">General Purpose</button>
           </li>
           <li class="my-2">
-            <button
-              onclick="loadPage('./startUp/index.html')"
-              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
-            >
-              StartUp Company
-            </button>
+            <button onclick="loadPage('./startUp/index.html')" class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">StartUp Company</button>
           </li>
           <li class="my-2">
-            <button
-              onclick="loadPage('./Gemini')"
-              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
-            >
-              AI Support (24*7)
-            </button>
+            <button onclick="loadPage('./Gemini')" class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">AI Support (24*7)</button>
           </li>
           <li class="my-2">
-            <button
-              onclick="loadPage('./Sticky_Notes/index.html')"
-              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
-            >
-              My Expenses Notes
-            </button>
+            <button onclick="loadPage('./Sticky_Notes/index.html')" class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">My Expenses Notes</button>
           </li>
           <li class="my-2">
-            <button
-              onclick="loadPage('./ExpertChat/index.html')"
-              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
-            >
-              Chat With Finance Expert
-            </button>
+            <button onclick="loadPage('./ExpertChat/index.html')" class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">Chat With Finance Expert</button>
           </li>
         </ul>
       </nav>
     </div>
 
     <!-- Main Content -->
-    <div
-      id="main-content"
-      class="flex-1 flex flex-col transition-all duration-300"
-    >
-      <header
-        id="dashboard-header"
-        class="flex justify-between items-center h-16 p-4 bg-gray-900 text-white fixed w-full z-10"
-      >
+    <div id="main-content" class="flex-1 flex flex-col transition-all duration-300">
+      <header id="dashboard-header" class="flex justify-between items-center h-16 p-4 bg-gray-900 text-white fixed w-full z-10">
         <button id="menu-btn" class="text-2xl hidden">&#9776;</button>
-        <span
-          class="text-xl cursor-pointer transform hover:scale-105 hover:font-bold fixed right-8"
-          onclick="logout()"
-          >Logout</span
-        >
+        <span class="text-xl cursor-pointer transform hover:scale-105 hover:font-bold fixed right-8" onclick="logout()">Logout</span>
       </header>
       <div class="flex-1 overflow-auto mt-16">
-        <iframe
-          id="content-frame"
-          name="content-frame"
-          src="./Newfolder/index.html"
-          class="w-full h-full border-0"
-        ></iframe>
+        <iframe id="content-frame" name="content-frame" src="./Newfolder/index.html" class="w-full h-full border-0"></iframe>
       </div>
     </div>
   </div>
+
   <script src="script.js"></script>
   <script>
     const sidebar = document.getElementById("sidebar");
@@ -234,6 +192,12 @@
         window.location.href = "index.html";
       }
     }
+
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        checkLogin();
+      }
+    });
 
     checkLogin();
   </script>
