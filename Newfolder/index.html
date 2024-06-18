@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Management App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="checkLogin(); animateDashboard();">
+
+    <main>
+        <header>
+            <h1>Daily Finance Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="#tracker">Expense Tracker</a></li>
+                    <li><a href="#visualization">Data Visualization</a></li>
+                    <li><a href="#advisor">AI Financial Advisor</a></li>
+                    <li><a href="#tax">Taxes Calculator</a></li>
+                </ul>
+            </nav>
+            <!-- <button onclick="logout()">Logout</button> -->
+            <button id="mode-toggle">Toggle Dark Mode</button>
+        </header>
+        <section id="tracker">
+            <h2>Expense Tracker</h2>
+            <form id="expense-form">
+                <input type="text" id="description" placeholder="Description" required>
+                <input type="number" id="amount" placeholder="Amount" required>
+                <select id="category">
+                    <option value="groceries">Groceries</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="study">Study</option>
+                    <option value="medical">Medical</option>
+                </select>
+                <button type="submit">Add Expense</button>
+            </form>
+            <ul id="expense-list"></ul>
+        </section>
+
+        <section id="visualization">
+            <h2>Data Visualization</h2>
+            <div class="chart">
+                <canvas id="expense-chart" style="width: 200px;"></canvas>
+            </div>
+        </section>
+
+        <section id="advisor">
+            <h2>AI Financial Advisor</h2>
+            <div id="advisor-output"></div>
+        </section>
+
+        <section id="tax">
+            <h2>Taxes Calculator</h2>
+            <form id="tax-form">
+                <input type="number" id="income" placeholder="Annual Income" required>
+                <input type="number" id="expenses" placeholder="Annual Expenses" required>
+                <button type="submit">Calculate Taxes</button>
+            </form>
+            <div id="tax-output"></div>
+        </section>
+    </main>
+
+    <button id="delete-all" title="Delete Everything">Delete All</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="ai-advisor.js"></script>
+    <script src="tax-calculator.js"></script>
+    <script src="payment-integration.js"></script>
+</body>
+</html>

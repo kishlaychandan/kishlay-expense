@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    .hidden-sidebar {
+      width: 0;
+      visibility: hidden;
+    }
+    @media screen and (max-width: 625px) {
+      #sidebar {
+        display: none;
+      }
+      #menu-btn {
+        display: inline;
+      }
+      #close-btn {
+      }
+    }
+    .tour {
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .tour>.videoTour>button {
+      position: absolute;
+      top: 0.2rem;
+      right: 0.2rem;
+      z-index: 10;
+      padding: 0.1rem 0.8rem;
+      border-radius: 0.5rem;
+      background-color: brown;
+      color: white;
+      border: 2px solid brown;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .tour>.videoTour>button:hover {
+      cursor: pointer;
+      background-color: rgb(224, 220, 220);
+      color: brown;
+    }
+    .videoTour {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      box-shadow: 30px 30px 30px rgba(110, 93, 186, 0.9);
+    }
+    .videoTour::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 0.5rem;
+      
+      transform: translateZ(-30px);
+      z-index: -1;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      transform: translateZ(30px);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="h-screen">
+  <div class="tour">
+    <div class="videoTour" style="width: 40rem">
+      <button onclick="closeTour()">close</button>
+      <video id="tourVideo" src="Tour.mp4" controls autoplay></video>
+    </div>
+  </div>
+  <div class="flex h-full">
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="w-64 bg-gray-800 text-white flex flex-col transition-width duration-300"
+    >
+      <div class="flex justify-between items-center p-4 bg-gray-900">
+        <span class="text-xl font-semibold">Menu</span>
+        <button id="close-btn" class="text-2xl">&times;</button>
+      </div>
+      <nav class="flex-1 p-4">
+        <ul>
+          <li class="my-2">
+            <button
+              onclick="loadPage('./Newfolder/index.html')"
+              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
+            >
+              General Purpose
+            </button>
+          </li>
+          <li class="my-2">
+            <button
+              onclick="loadPage('./startUp/index.html')"
+              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
+            >
+              StartUp Company
+            </button>
+          </li>
+          <li class="my-2">
+            <button
+              onclick="loadPage('./Gemini')"
+              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
+            >
+              AI Support (24*7)
+            </button>
+          </li>
+          <li class="my-2">
+            <button
+              onclick="loadPage('./sticky_Notes/index.html')"
+              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
+            >
+              My Expenses Notes
+            </button>
+          </li>
+          <li class="my-2">
+            <button
+              onclick="loadPage('./ExpertChat/index.html')"
+              class="w-full text-left py-2 px-4 bg-gray-700 rounded hover:bg-gray-600"
+            >
+              Chat With Finance Expert
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div
+      id="main-content"
+      class="flex-1 flex flex-col transition-all duration-300"
+    >
+      <header
+        id="dashboard-header"
+        class="flex justify-between items-center h-16 p-4 bg-gray-900 text-white fixed w-full z-10"
+      >
+        <button id="menu-btn" class="text-2xl hidden">&#9776;</button>
+        <span
+          class="text-xl cursor-pointer transform hover:scale-105 hover:font-bold fixed right-8"
+          onclick="logout()"
+          >Logout</span
+        >
+      </header>
+      <div class="flex-1 overflow-auto mt-16">
+        <iframe
+          id="content-frame"
+          name="content-frame"
+          src="../Newfolder/index.html"
+          class="w-full h-full border-0"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("main-content");
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const dashboardHeader = document.getElementById("dashboard-header");
+    const closeTourBtn = document.querySelector(".tour");
+    const tourVideo = document.getElementById("tourVideo");
+
+    function closeTour() {
+      tourVideo.pause();
+      tourVideo.currentTime = 0;
+      closeTourBtn.style.animation = "fadeOut 1s ease-in-out";
+      setTimeout(() => {
+        closeTourBtn.style.display = "none";
+      }, 1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      tourVideo.play();
+    });
+
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.remove("hidden");
+      sidebar.style.display = "inline";
+      menuBtn.style.display = "none";
+      menuBtn.classList.add("hidden");
+      closeBtn.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.add("hidden");
+      menuBtn.style.display = "inline";
+      sidebar.style.display = "none";
+      menuBtn.classList.remove("hidden");
+      closeBtn.classList.add("hidden");
+    });
+
+    function loadPage(url) {
+      document.getElementById("content-frame").src = url;
+    }
+
+    function logout() {
+      sessionStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+
+    function checkLogin() {
+      const loggedIn = sessionStorage.getItem("loggedIn");
+      if (!loggedIn) {
+        window.location.href = "index.html";
+      }
+    }
+
+    checkLogin();
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(190, 186, 186);
+}
+.main{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 3rem;
+    animation: heading 4s linear infinite;
+}
+@keyframes heading {
+    0%{
+        transform: translateX(-2rem); 
+        color: red;   
+    }
+    50%{
+        transform: translateX(2rem);   
+        color: blue; 
+    }
+    100%{
+        transform: translateX(-2rem);   
+        color: yellow; 
+    }
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+button{
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.7rem;
+    border: 2px solid blue;
+    background-color: blue;
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: blue;
+}
