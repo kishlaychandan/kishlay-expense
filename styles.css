@@ -59,6 +59,15 @@ nav div p:hover {
     background-color: white;
     cursor: pointer;
 }
+@media screen and (max-width:486px) {
+    nav a{
+        font-size: 0.7rem;
+
+    }
+    nav div p{
+        font-size: 0.7rem;
+    }
+}
 
 .main {
     display: flex;
@@ -163,3 +172,5 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+

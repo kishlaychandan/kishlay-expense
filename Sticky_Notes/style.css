@@ -115,12 +115,24 @@ body{
     
 }
 .notes_section>h1{
+    text-align: center;
     margin-top: 3rem;
     margin-bottom: 2rem;
     color: red;
     font-size: 3rem;
     animation: heading 8s linear infinite;
 }
+ @media screen and (max-width:450px) {
+    .notes_section>h1{
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        color: red;
+        font-size: 2.5rem;
+        animation: heading 8s linear infinite;
+    }
+ }
+
 @keyframes heading {
     0%{
         transform: translateX(-2rem);

@@ -23,11 +23,29 @@
       #close-btn {
       }
     }
+    @media screen and (max-width: 993px) {
+      .tour {
+      }
+    }
     .tour {
       position: absolute;
-      top: 20%;
+      top: 30%;
       left: 30%;
       animation: fadeIn 1s ease-in-out;
+      width: 40rem;
+    }
+    @media screen and (max-width: 993px) {
+      .tour {
+        width: 30rem;
+        left: 20%;
+      }
+    }
+    @media screen and (max-width: 625px) {
+      .tour {
+        width: 20rem;
+        left: 10%;
+        /* top: 10%; */
+      }
     }
     .tour>.videoTour>button {
       position: absolute;
@@ -62,7 +80,6 @@
       right: 10px;
       bottom: 10px;
       border-radius: 0.5rem;
-      
       transform: translateZ(-30px);
       z-index: -1;
     }
@@ -93,7 +110,7 @@
 </head>
 <body class="h-screen" onload="checkLogin(); animateDashboard();">
   <div class="tour">
-    <div class="videoTour" style="width: 40rem">
+    <div class="videoTour">
       <button onclick="closeTour()">close</button>
       <video id="tourVideo" src="Tour.mp4" controls autoplay></video>
     </div>

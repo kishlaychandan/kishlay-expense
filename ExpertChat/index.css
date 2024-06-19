@@ -16,8 +16,8 @@ body{
 }
 h1{
     font-size: 3.5rem;
-    font-weight: 100;
     animation: heading 5s linear infinite;
+    text-align: center;
 }
 @keyframes heading {
     0%{
