@@ -120,17 +120,20 @@ nav div p:hover {
     background: #fff;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     width: 300px;
     text-align: center;
+    background-color: #ff8c00;
+    color: blue;
 }
-
+#signup-section,#login-section{
+}
 .hidden {
     display: none;
 }
 
 input {
-    width: 100%;
+    width: 92%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;

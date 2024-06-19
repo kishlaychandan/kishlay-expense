@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         expenses.forEach(expense => {
             const li = document.createElement("li");
             li.dataset.id = expense.id;
-            li.innerHTML = `<span>${expense.description}: $${expense.amount} [${expense.category}]</span>
+            li.innerHTML = `<span>${expense.description}: ₹${expense.amount} [${expense.category}]</span>
                             <button class="edit-btn">Edit</button>
                             <button class="delete-btn">Delete</button>`;
             expenseList.appendChild(li);

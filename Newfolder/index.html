@@ -1,65 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Financial Management App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body onload="checkLogin(); animateDashboard();">
-
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="tax.css" />
+  </head>
+  <body onload="checkLogin(); animateDashboard();">
     <main>
-        <header>
-            <h1>Daily Finance Management</h1>
-            <nav>
-                <ul>
-                    <li><a href="#tracker">Expense Tracker</a></li>
-                    <li><a href="#visualization">Data Visualization</a></li>
-                    <li><a href="#advisor">AI Financial Advisor</a></li>
-                    <li><a href="#tax">Taxes Calculator</a></li>
-                </ul>
-            </nav>
-            <!-- <button onclick="logout()">Logout</button> -->
-            <button id="mode-toggle">Toggle Dark Mode</button>
-        </header>
-        <section id="tracker">
-            <h2>Expense Tracker</h2>
-            <form id="expense-form">
-                <input type="text" id="description" placeholder="Description" required>
-                <input type="number" id="amount" placeholder="Amount" required>
-                <select id="category">
-                    <option value="groceries">Groceries</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="study">Study</option>
-                    <option value="medical">Medical</option>
-                </select>
-                <button type="submit">Add Expense</button>
-            </form>
-            <ul id="expense-list"></ul>
-        </section>
+      <header>
+        <h1>Daily Finance Management</h1>
+        <nav>
+          <ul>
+            <li><a href="#tracker">Expense Tracker</a></li>
+            <li><a href="#visualization">Data Visualization</a></li>
+            <li><a href="#advisor">AI Financial Advisor</a></li>
+            <li><a href="#tax">Taxes Calculator</a></li>
+          </ul>
+        </nav>
+        <!-- <button onclick="logout()">Logout</button> -->
+        <button id="mode-toggle">Toggle Dark Mode</button>
+      </header>
+      <section id="tracker">
+        <h2>Expense Tracker</h2>
+        <form id="expense-form">
+          <input
+            type="text"
+            id="description"
+            placeholder="Description"
+            required
+          />
+          <input type="number" id="amount" placeholder="Amount" required />
+          <select id="category">
+            <option value="groceries">Groceries</option>
+            <option value="utilities">Utilities</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="study">Study</option>
+            <option value="medical">Medical</option>
+          </select>
+          <button type="submit">Add Expense</button>
+        </form>
+        <ul id="expense-list"></ul>
+      </section>
 
-        <section id="visualization">
-            <h2>Data Visualization</h2>
-            <div class="chart">
-                <canvas id="expense-chart" style="width: 200px;"></canvas>
-            </div>
-        </section>
+      <section id="visualization">
+        <h2>Data Visualization</h2>
+        <div class="chart">
+          <canvas id="expense-chart" style="width: 200px"></canvas>
+        </div>
+      </section>
 
-        <section id="advisor">
-            <h2>AI Financial Advisor</h2>
-            <div id="advisor-output"></div>
-        </section>
+      <section id="advisor">
+        <h2>AI Financial Advisor</h2>
+        <div id="advisor-output"></div>
+      </section>
 
-        <section id="tax">
-            <h2>Taxes Calculator</h2>
-            <form id="tax-form">
-                <input type="number" id="income" placeholder="Annual Income" required>
-                <input type="number" id="expenses" placeholder="Annual Expenses" required>
-                <button type="submit">Calculate Taxes</button>
-            </form>
-            <div id="tax-output"></div>
-        </section>
+      <section id="tax">
+        <h2>Taxes Calculator</h2>
+        <div id="tax-calculator">
+          <form id="tax-form">
+            <input
+              type="number"
+              id="income"
+              placeholder="Enter your total income"
+              required
+            />
+            <button type="submit">Calculate Tax</button>
+          </form>
+          <div>
+            <p>Total Income: ₹<span id="total-income">0</span></p>
+            <p>Tax Rate: <span id="tax-rate">0</span>%</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Income Threshold</th>
+                  <th>Tax Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Income above ₹1000000.00</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td>Income above ₹700000.00</td>
+                  <td>15%</td>
+                </tr>
+                <tr>
+                  <td>Income above ₹500000.00</td>
+                  <td>10%</td>
+                </tr>
+                <tr>
+                  <td>Income above ₹300000.00</td>
+                  <td>5%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Tax to Pay: ₹<span id="tax-to-pay">0</span></p>
+            <p>Amount left after tax: ₹<span id="amount-left">0</span></p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <button id="delete-all" title="Delete Everything">Delete All</button>
@@ -69,5 +111,5 @@
     <script src="ai-advisor.js"></script>
     <script src="tax-calculator.js"></script>
     <script src="payment-integration.js"></script>
-</body>
+  </body>
 </html>

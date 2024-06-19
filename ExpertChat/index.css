@@ -1,5 +1,11 @@
 body{
     background-color: rgb(190, 186, 186);
+    background-image: url(finance.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .main{
     /* background-color: aqua; */
@@ -9,26 +15,49 @@ body{
     align-items: center;
 }
 h1{
-    font-size: 3rem;
-    animation: heading 4s linear infinite;
+    font-size: 3.5rem;
+    font-weight: 100;
+    animation: heading 5s linear infinite;
 }
 @keyframes heading {
     0%{
-        transform: translateX(-2rem); 
-        color: red;   
+        transform: translateX(1rem); 
+        color: rgb(235, 165, 79);   
     }
     50%{
         transform: translateX(2rem);   
-        color: blue; 
+        color: rgb(72, 72, 252); 
     }
     100%{
-        transform: translateX(-2rem);   
-        color: yellow; 
+        transform: translateX(1rem);   
+        color: rgb(130, 241, 174); 
     }
 }
-
+.pay{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 12rem 0rem;
+}
 p{
     font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: brown;
+    transition: all 3s linear infinite;
+    animation: para 8s linear infinite;
+}
+@keyframes para{
+    20%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    80%{
+        transform: scale(1.1);
+    }
 }
 
 button{
@@ -37,6 +66,25 @@ button{
     border: 2px solid blue;
     background-color: blue;
     color: white;
+    transition: all 1s linear infinite;
+    animation: btn 2s linear infinite;
+}
+@keyframes btn{
+    20%{
+        /* transform: scale(1.1); */
+        color: red;
+    }
+    40%{
+        /* transform: scale(1.2); */
+        color: rgb(250, 250, 1);
+    }
+    60%{
+        /* transform: scale(1.1); */
+        color: rgb(13, 227, 38);
+    }
+    80%{
+        color: rgb(204, 0, 255);
+    }
 }
 button:hover{
     cursor: pointer;

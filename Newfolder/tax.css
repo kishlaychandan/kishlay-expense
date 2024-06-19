@@ -1,0 +1,58 @@
+h1 {
+    margin-top: 20px;
+}
+
+#tax-calculator {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: rgb(184, 181, 181);
+
+}
+
+form {
+    margin-bottom: 20px;
+ }
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #dddddd;
+    text-align: center;
+}
+
+th {
+    background-color: #4caf50;
+}
