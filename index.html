@@ -8,28 +8,41 @@
 </head>
 <body>
     <div id="background-animation"></div>
-    <div class="container">
-        <div id="login-section">
-            <h2>Login</h2>
-            <input type="text" id="login-username" placeholder="Username">
-            <input type="password" id="login-password" placeholder="Password">
-            <button onclick="login()">Login</button>
-            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    <nav>
+        <a href="index.html">HOME</a>
+        <div>
+            <p class="loginsignup">LOGIN & SIGNUP</p>
         </div>
-        <div id="signup-section" class="hidden">
-            <h2>Sign Up</h2>
-            <input type="text" id="signup-name" placeholder="Name">
-            <input type="text" id="signup-phone" placeholder="Phone Number">
-            <input type="email" id="signup-email" placeholder="Email">
-            <input type="text" id="signup-username" placeholder="Username">
-            <input type="password" id="signup-password" placeholder="Password">
-            <button onclick="signup()">Sign Up</button>
-            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </nav>
+    <div class="main">
+        <div class="section1 hero-section">
+            <h1>Track Your Expenses Effortlessly</h1>
+            <p>Stay on top of your finances with our intuitive expense tracker.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+        <div class="container">
+            <div id="login-section">
+                <h2>Login</h2>
+                <input type="text" id="login-username" placeholder="Username">
+                <input type="password" id="login-password" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+            </div>
+            <div id="signup-section" class="hidden">
+                <h2>Sign Up</h2>
+                <input type="text" id="signup-name" placeholder="Name">
+                <input type="text" id="signup-phone" placeholder="Phone Number">
+                <input type="email" id="signup-email" placeholder="Email">
+                <input type="text" id="signup-username" placeholder="Username">
+                <input type="password" id="signup-password" placeholder="Password">
+                <button onclick="signup()">Sign Up</button>
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="script.js"></script>
-    <script src="backgroundANimation.js"></script>
+    <script src="backgroundAnimation.js"></script>
 </body>
 </html>

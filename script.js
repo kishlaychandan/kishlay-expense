@@ -1,8 +1,7 @@
 function showSignup() {
     const loginSection = document.getElementById('login-section');
     const signupSection = document.getElementById('signup-section');
-
-    anime({
+        anime({
         targets: loginSection,
         translateX: [-300, 0],
         opacity: [1, 0],
@@ -21,6 +20,32 @@ function showSignup() {
         }
     });
 }
+let loginsign=document.querySelector(".loginsignup");
+let ctabutton=document.querySelector(".cta-button");
+let container=document.querySelector(".container");
+container.style.display="none";
+let section1=document.querySelector(".section1");
+
+ctabutton.addEventListener("click",()=>{
+    if(container.style.display=="none"){
+        container.style.display="block";
+        section1.style.display="none"
+    }
+    else{
+        container.style.display="none";
+        section1.style.display="block"
+    }
+})
+loginsign.addEventListener("click",()=>{
+    if(container.style.display=="none"){
+        container.style.display="block";
+        section1.style.display="none"
+    }
+    else{
+        container.style.display="none";
+        section1.style.display="block"
+    }
+})
 
 function showLogin() {
     const signupSection = document.getElementById('signup-section');
